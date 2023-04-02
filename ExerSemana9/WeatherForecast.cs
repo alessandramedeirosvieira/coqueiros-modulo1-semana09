@@ -1,4 +1,4 @@
-namespace Semana9Exerc;
+namespace ExerSemana9;
 
 public class WeatherForecast
 {

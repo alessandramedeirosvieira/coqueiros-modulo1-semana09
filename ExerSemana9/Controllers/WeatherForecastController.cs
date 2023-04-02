@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Semana9Exerc.Controllers;
+namespace ExerSemana9.Controllers;
 
 [ApiController]
 [Route("[controller]")]
