@@ -11,31 +11,31 @@ namespace ExerSemana9.Controllers
     [ApiController]
     public class SemanaController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("GET")]
         public ActionResult Get()
         {
             return Ok();
         } 
 
-        [HttpGet("{id}")]
+        [HttpGet("GET/{id}")]
         public ActionResult Get([FromRoute] int id)
         {
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPost("POST")]
         public ActionResult Post([FromBody] SemanaModel semanaModel)
         {
             return Ok(true);
         }
 
-        [HttpPut]
+        [HttpPut ("PUT")]
         public ActionResult Put([FromBody] SemanaModel mesModel)
         {
             return Ok();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DELETE/{id}")]
         public ActionResult Delete([FromRoute] int id)
         {
             return Ok();

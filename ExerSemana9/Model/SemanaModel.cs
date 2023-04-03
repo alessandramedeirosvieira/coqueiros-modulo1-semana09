@@ -15,10 +15,13 @@ namespace ExerSemana9.Model
          [Column("CODIGO")]
         public int Id { get; set; }
         [NotNull]
+        [Column ("DATA")]
         public DateTime DataSemana { get; set; }
         [MaxLength(100)]
+        [Column ("CONTEÚDO")]
         public string Conteudo { get; set; }
         [NotNull]
+        [Column ("APLICCONTEÚDO")]
         public bool AplicadoConteudo { get; set; }
     }
 }
