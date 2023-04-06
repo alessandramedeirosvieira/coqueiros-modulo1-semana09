@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExerSemana9.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class SemanaController : ControllerBase
     {
-        [HttpGet("GET")]
+         [HttpGet("GET")]
         public ActionResult Get()
         {
             return Ok();
