@@ -11,34 +11,63 @@ namespace ExerSemana9.Controllers
     [Route("api/[controller]")]
     public class SemanaController : ControllerBase
     {
-         [HttpGet("GET")]
-        public ActionResult Get()
-        {
-            return Ok();
-        } 
+        //variavel do tipo leitura
+        private readonly SemanaContext semanaContext;
 
-        [HttpGet("GET/{id}")]
-        public ActionResult Get([FromRoute] int id)
+        //CTOR com parametros (injetado dentro dos parenteses o context)
+        //se tenho uma injecao, tenho uma var de leitura acima injetado do tipo context, dentro do ctor , faço a injecao de dependencia
+
+        public SemanaController(SemanaContext semanaContext)
         {
-            return Ok();
+            this.semanaContext = semanaContext;
         }
+        [HttpGet]
+            public ActionResult Get()
+            {
+                return Ok();
+            }
 
+        [HttpGet("{id}")]
+            public ActionResult Get([FromRoute] int id)
+            {
+                return Ok();
+            }
         [HttpPost("POST")]
         public ActionResult Post([FromBody] SemanaModel semanaModel)
+            {
+             if (semanaModel.Id > 0)
+                {
+                    return Ok(true);
+                }
+                {
+                    return BadRequest("ID necessita ser maior que 0");
+                }
+            }
+        [HttpPut("PUT")]
+        public ActionResult Put([FromBody] SemanaModel semanaModel)
         {
-            return Ok(true);
+           if (semanaModel.Id != 0)
+                {
+                    return Ok(true);
+                }
+                {
+                    return BadRequest("ID necessita ser maior que 0");
+                }
         }
-
-        [HttpPut ("PUT")]
-        public ActionResult Put([FromBody] SemanaModel mesModel)
+        [HttpDelete("DELETE")]
+        public ActionResult Delete(int id)
         {
-            return Ok();
-        }
+            var Id = semanaContext.Semana.Find(id);
 
-        [HttpDelete("DELETE/{id}")]
-        public ActionResult Delete([FromRoute] int id)
-        {
-            return Ok();
+            if (Id == null)
+            {
+                return NotFound();
+            }
+
+            semanaContext.Semana.Remove(Id);
+            semanaContext.SaveChanges();
+
+            return NoContent();
         }
     }
 }
