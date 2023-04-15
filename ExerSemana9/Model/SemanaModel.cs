@@ -12,7 +12,7 @@ namespace ExerSemana9.Model
     public class SemanaModel
     {
         [Key]
-         [Column("CODIGO")]
+        [Column("CODIGO")]
         public int Id { get; set; }
         [NotNull]
         [Column ("DATA")]

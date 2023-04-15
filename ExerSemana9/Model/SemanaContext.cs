@@ -11,6 +11,6 @@ namespace ExerSemana9.Model
         public SemanaContext(DbContextOptions<SemanaContext> options) : base(options)
         {
         }
-            public DbSet <SemanaModel> Semana {get; set;}
+        public DbSet <SemanaModel> Semana {get; set;}
     }
 }
